@@ -11,7 +11,6 @@ public class HangHoaPK implements Serializable {
 	 */
 	private static final long serialVersionUID = -7246485906446023185L;
 	private String nhacc;
-	private String phieunhap;
 	private String maHangHoa;
 	
 	public HangHoaPK() {
@@ -23,7 +22,6 @@ public class HangHoaPK implements Serializable {
 		int result = 1;
 		result = prime * result + ((maHangHoa == null) ? 0 : maHangHoa.hashCode());
 		result = prime * result + ((nhacc == null) ? 0 : nhacc.hashCode());
-		result = prime * result + ((phieunhap == null) ? 0 : phieunhap.hashCode());
 		return result;
 	}
 
@@ -45,11 +43,6 @@ public class HangHoaPK implements Serializable {
 			if (other.nhacc != null)
 				return false;
 		} else if (!nhacc.equals(other.nhacc))
-			return false;
-		if (phieunhap == null) {
-			if (other.phieunhap != null)
-				return false;
-		} else if (!phieunhap.equals(other.phieunhap))
 			return false;
 		return true;
 	}

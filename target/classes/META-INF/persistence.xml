@@ -2,20 +2,20 @@
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 	<persistence-unit name="Nhom7_QLQuanCafe">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>entity.DonDatHang</class>
-        <class>entity.DonDatHangPK</class>
         <class>entity.HangHoa</class>
         <class>entity.HangHoaPK</class>
         <class>entity.HoaDon</class>
         <class>entity.HoaDonPK</class>
+        <class>entity.HoaDonDatHang</class>
+        <class>entity.HoaDonDatHangPK</class>
         <class>entity.KhachHang</class>
-        <class>entity.LoaiNuoc</class>
-        <class>entity.LoaiNuocPK</class>
         <class>entity.NhaCC</class>
         <class>entity.NhanVien</class>
-        <class>entity.PhieuNhap</class>
-        <class>entity.PhieuNhapPK</class>
         <class>entity.TaiKhoan</class>
+        <class>entity.ChiTietHoaDonPK</class>
+        <class>entity.ChiTietHoaDon</class>
+        <class>entity.ChiTietDatHangPK</class>
+        <class>entity.ChiTietDatHang</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver"

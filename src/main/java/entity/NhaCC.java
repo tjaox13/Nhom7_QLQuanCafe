@@ -31,23 +31,19 @@ public class NhaCC {
 	private String sDT;
 	
 	@OneToMany(mappedBy = "nhacc")
-	private List<DonDatHang> dsdondathang;
-	
-	@OneToMany(mappedBy = "nhacc")
 	private List<HangHoa> dshanghoa;
 
 	public NhaCC() {
 		super();
 	}
 
-	public NhaCC(String maNCC, String tenNCC, String diaChi, String sDT, List<DonDatHang> dsdondathang,
+	public NhaCC(String maNCC, String tenNCC, String diaChi, String sDT,
 			List<HangHoa> dshanghoa) {
 		super();
 		this.maNCC = maNCC;
 		this.tenNCC = tenNCC;
 		this.diaChi = diaChi;
 		this.sDT = sDT;
-		this.dsdondathang = dsdondathang;
 		this.dshanghoa = dshanghoa;
 	}
 
@@ -83,14 +79,6 @@ public class NhaCC {
 		this.sDT = sDT;
 	}
 
-	public List<DonDatHang> getDsdondathang() {
-		return dsdondathang;
-	}
-
-	public void setDsdondathang(List<DonDatHang> dsdondathang) {
-		this.dsdondathang = dsdondathang;
-	}
-
 	public List<HangHoa> getDshanghoa() {
 		return dshanghoa;
 	}
@@ -102,7 +90,7 @@ public class NhaCC {
 	@Override
 	public String toString() {
 		return "NhaCC [maNCC=" + maNCC + ", tenNCC=" + tenNCC + ", diaChi=" + diaChi + ", sDT=" + sDT
-				+ ", dsdondathang=" + dsdondathang + ", dshanghoa=" + dshanghoa + "]";
+				+ ", dsdondathang=" + ", dshanghoa=" + dshanghoa + "]";
 	}
 	
 		

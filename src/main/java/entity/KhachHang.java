@@ -19,21 +19,17 @@ public class KhachHang {
 	private int soBan;
 	
 	@OneToMany(mappedBy = "khachhang")
-	private List<LoaiNuoc> dsLoaiNuoc;
-	
-	@OneToMany(mappedBy = "khachhang")
 	private List<HoaDon> dsHoaDon;
 
 	public KhachHang() {
 		super();
 	}
 
-	public KhachHang(String maKH, String tenKH, int soBan, List<LoaiNuoc> dsLoaiNuoc, List<HoaDon> dsHoaDon) {
+	public KhachHang(String maKH, String tenKH, int soBan, List<HoaDon> dsHoaDon) {
 		super();
 		this.maKH = maKH;
 		this.tenKH = tenKH;
 		this.soBan = soBan;
-		this.dsLoaiNuoc = dsLoaiNuoc;
 		this.dsHoaDon = dsHoaDon;
 	}
 
@@ -61,14 +57,6 @@ public class KhachHang {
 		this.soBan = soBan;
 	}
 
-	public List<LoaiNuoc> getDsLoaiNuoc() {
-		return dsLoaiNuoc;
-	}
-
-	public void setDsLoaiNuoc(List<LoaiNuoc> dsLoaiNuoc) {
-		this.dsLoaiNuoc = dsLoaiNuoc;
-	}
-
 	public List<HoaDon> getDsHoaDon() {
 		return dsHoaDon;
 	}
@@ -79,11 +67,10 @@ public class KhachHang {
 
 	@Override
 	public String toString() {
-		return "KhachHang [maKH=" + maKH + ", tenKH=" + tenKH + ", soBan=" + soBan + ", dsLoaiNuoc=" + dsLoaiNuoc
-				+ ", dsHoaDon=" + dsHoaDon + "]";
+		return "KhachHang [maKH=" + maKH + ", tenKH=" + tenKH + ", soBan=" + soBan + ", dsHoaDon=" + dsHoaDon + "]";
 	}
 
-	
+
 	
 	
 }

@@ -1,6 +1,7 @@
 package entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 @IdClass(HangHoaPK.class)
@@ -21,32 +23,30 @@ public class HangHoa {
 	private NhaCC nhacc;
 	
 	@Id
-	@ManyToOne
-//	@JoinColumns({
-//		  @JoinColumn(name = "MaNV", insertable = false, updatable = false),
-//		  @JoinColumn(name = "MaPhieuNhap", insertable = false, updatable = false)
-//		})
-	@JoinColumn(name = "MaPhieuNhap")
-	private PhieuNhap phieunhap;
-	
-	@Id
 	@Column(name = "MaHangHoa")
 	private String maHangHoa;
 	
-	@Column(name = "SoLuong")
-	private int soLuong;
+	@Column(name = "DonGia")
+	private double donGia;
 	
+	@OneToMany(mappedBy = "hanghoa")
+	private List<ChiTietHoaDon> dschitiethoadon;
+	
+	@OneToMany(mappedBy = "hanghoa")
+	private List<ChiTietDatHang> dschitietdathang;
 	
 	public HangHoa() {
 		super();
 	}
 
-	public HangHoa(NhaCC nhacc, PhieuNhap phieunhap, String maHangHoa, int soLuong) {
+	public HangHoa(NhaCC nhacc, String maHangHoa, double donGia, List<ChiTietHoaDon> dschitiethoadon,
+			List<ChiTietDatHang> dschitietdathang) {
 		super();
 		this.nhacc = nhacc;
-		this.phieunhap = phieunhap;
 		this.maHangHoa = maHangHoa;
-		this.soLuong = soLuong;
+		this.donGia = donGia;
+		this.dschitiethoadon = dschitiethoadon;
+		this.dschitietdathang = dschitietdathang;
 	}
 
 	public NhaCC getNhacc() {
@@ -57,14 +57,6 @@ public class HangHoa {
 		this.nhacc = nhacc;
 	}
 
-	public PhieuNhap getPhieunhap() {
-		return phieunhap;
-	}
-
-	public void setPhieunhap(PhieuNhap phieunhap) {
-		this.phieunhap = phieunhap;
-	}
-
 	public String getMaHangHoa() {
 		return maHangHoa;
 	}
@@ -73,21 +65,36 @@ public class HangHoa {
 		this.maHangHoa = maHangHoa;
 	}
 
-	public int getSoLuong() {
-		return soLuong;
+	public double getDonGia() {
+		return donGia;
 	}
 
-	public void setSoLuong(int soLuong) {
-		this.soLuong = soLuong;
+	public void setDonGia(double donGia) {
+		this.donGia = donGia;
+	}
+
+	public List<ChiTietHoaDon> getDschitiethoadon() {
+		return dschitiethoadon;
+	}
+
+	public void setDschitiethoadon(List<ChiTietHoaDon> dschitiethoadon) {
+		this.dschitiethoadon = dschitiethoadon;
+	}
+
+	public List<ChiTietDatHang> getDschitietdathang() {
+		return dschitietdathang;
+	}
+
+	public void setDschitietdathang(List<ChiTietDatHang> dschitietdathang) {
+		this.dschitietdathang = dschitietdathang;
 	}
 
 	@Override
 	public String toString() {
-		return "HangHoa [nhacc=" + nhacc + ", phieunhap=" + phieunhap + ", maHangHoa=" + maHangHoa + ", soLuong="
-				+ soLuong + "]";
+		return "HangHoa [nhacc=" + nhacc + ", maHangHoa=" + maHangHoa + ", donGia=" + donGia + ", dschitiethoadon="
+				+ dschitiethoadon + ", dschitietdathang=" + dschitietdathang + "]";
 	}
-	
-	
+
 	
 	
 }

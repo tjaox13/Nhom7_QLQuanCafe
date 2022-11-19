@@ -30,31 +30,22 @@ public class NhanVien {
 	@Column(name = "DiaChi", columnDefinition = "nvarchar(255)")
 	private String diaChi;
 	
-//	@OneToOne
-//    @JoinColumn(name = "MaNV")
-//    private TaiKhoan taikhoan;
 	@OneToOne
 	@PrimaryKeyJoinColumn
 	private TaiKhoan taikhoan;
-//	@ManyToOne
-//	@JoinColumn(name="maNV")
-//	private TaiKhoan taikhoan;
 	
 	@OneToMany(mappedBy = "nhanvien")
 	private List<HoaDon> dshoadon;
 	
 	@OneToMany(mappedBy = "nhanvien")
-	private List<PhieuNhap> dsphieunhap;
-	
-	@OneToMany(mappedBy = "nhanvien")
-	private List<DonDatHang> dsdondathang;
+	private List<HoaDonDatHang> dshoadondathang;
 
 	public NhanVien() {
 		super();
 	}
 
 	public NhanVien(String maNV, String tenNV, LocalDate ngaysinh, String diaChi, TaiKhoan taikhoan,
-			List<HoaDon> dshoadon, List<PhieuNhap> dsphieunhap, List<DonDatHang> dsdondathang) {
+			List<HoaDon> dshoadon, List<HoaDonDatHang> dshoadondathang) {
 		super();
 		this.maNV = maNV;
 		this.tenNV = tenNV;
@@ -62,8 +53,7 @@ public class NhanVien {
 		this.diaChi = diaChi;
 		this.taikhoan = taikhoan;
 		this.dshoadon = dshoadon;
-		this.dsphieunhap = dsphieunhap;
-		this.dsdondathang = dsdondathang;
+		this.dshoadondathang = dshoadondathang;
 	}
 
 	public String getMaNV() {
@@ -114,32 +104,20 @@ public class NhanVien {
 		this.dshoadon = dshoadon;
 	}
 
-	public List<PhieuNhap> getDsphieunhap() {
-		return dsphieunhap;
+	public List<HoaDonDatHang> getDshoadondathang() {
+		return dshoadondathang;
 	}
 
-	public void setDsphieunhap(List<PhieuNhap> dsphieunhap) {
-		this.dsphieunhap = dsphieunhap;
-	}
-
-	public List<DonDatHang> getDsdondathang() {
-		return dsdondathang;
-	}
-
-	public void setDsdondathang(List<DonDatHang> dsdondathang) {
-		this.dsdondathang = dsdondathang;
+	public void setDshoadondathang(List<HoaDonDatHang> dshoadondathang) {
+		this.dshoadondathang = dshoadondathang;
 	}
 
 	@Override
 	public String toString() {
 		return "NhanVien [maNV=" + maNV + ", tenNV=" + tenNV + ", ngaysinh=" + ngaysinh + ", diaChi=" + diaChi
-				+ ", taikhoan=" + taikhoan + ", dshoadon=" + dshoadon + ", dsphieunhap=" + dsphieunhap
-				+ ", dsdondathang=" + dsdondathang + "]";
+				+ ", taikhoan=" + taikhoan + ", dshoadon=" + dshoadon + ", dshoadondathang=" + dshoadondathang + "]";
 	}
-	
-	
-	
-	
+
 	
 	
 }

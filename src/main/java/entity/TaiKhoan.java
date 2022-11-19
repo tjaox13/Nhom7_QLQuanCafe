@@ -13,7 +13,6 @@ import javax.persistence.OneToOne;
 public class TaiKhoan {
 
 	@Id
-	@Column(name = "MaNV")
 	private String maNV;
 	@Column(name = "MatKhau", columnDefinition = "nvarchar(255)")
 	private String matKhau;
