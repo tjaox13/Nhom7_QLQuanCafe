@@ -9,6 +9,8 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,6 +23,7 @@ public class NhaCC {
 	
 	@Id
 	@Column(name = "MaNCC")
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String maNCC;
 	@Column(name = "TenNCC", columnDefinition = "nvarchar(255)", nullable = false)
 	private String tenNCC;
@@ -31,20 +34,20 @@ public class NhaCC {
 	private String sDT;
 	
 	@OneToMany(mappedBy = "nhacc")
-	private List<HangHoa> dshanghoa;
+	private List<HangHoa> dsHangHoa;
 
 	public NhaCC() {
 		super();
 	}
 
 	public NhaCC(String maNCC, String tenNCC, String diaChi, String sDT,
-			List<HangHoa> dshanghoa) {
+			List<HangHoa> dsHangHoa) {
 		super();
 		this.maNCC = maNCC;
 		this.tenNCC = tenNCC;
 		this.diaChi = diaChi;
 		this.sDT = sDT;
-		this.dshanghoa = dshanghoa;
+		this.dsHangHoa = dsHangHoa;
 	}
 
 	public String getMaNCC() {
@@ -79,18 +82,18 @@ public class NhaCC {
 		this.sDT = sDT;
 	}
 
-	public List<HangHoa> getDshanghoa() {
-		return dshanghoa;
+	public List<HangHoa> getdsHangHoa() {
+		return dsHangHoa;
 	}
 
-	public void setDshanghoa(List<HangHoa> dshanghoa) {
-		this.dshanghoa = dshanghoa;
+	public void setdsHangHoa(List<HangHoa> dsHangHoa) {
+		this.dsHangHoa = dsHangHoa;
 	}
 
 	@Override
 	public String toString() {
 		return "NhaCC [maNCC=" + maNCC + ", tenNCC=" + tenNCC + ", diaChi=" + diaChi + ", sDT=" + sDT
-				+ ", dsdondathang=" + ", dshanghoa=" + dshanghoa + "]";
+				+ ", dsdondathang=" + ", dsHangHoa=" + dsHangHoa + "]";
 	}
 	
 		

@@ -15,20 +15,12 @@ public class ChiTietDatHang {
 	
 	@Id
 	@ManyToOne
-	//@JoinColumn(name = "MaDonDat")
-	
-	@JoinColumns({
-	    @JoinColumn(name="MaDonDat", referencedColumnName="MaDonDat"),
-	    @JoinColumn(name="nhanvien", referencedColumnName="MaNV")
-	})
+	@JoinColumn(name = "MaDonDat")
 	private HoaDonDatHang hoadondathang;
+	
 	@Id
 	@ManyToOne
-	//@JoinColumn(name = "MaHangHoa")
-	@JoinColumns({
-	    @JoinColumn(name="maHangHoa", referencedColumnName="MaHangHoa"),
-	    @JoinColumn(name="nhacc", referencedColumnName="MaNCC")
-	})
+	@JoinColumn(name = "MaHH")
 	private HangHoa hanghoa;
 	
 	private int soLuong;

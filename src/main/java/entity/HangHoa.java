@@ -1,33 +1,40 @@
 package entity;
 
+import java.awt.Image;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
-@IdClass(HangHoaPK.class)
 public class HangHoa {
 	
-	@Id
-	@ManyToOne
-	@JoinColumn(name="MaNCC")
-	private NhaCC nhacc;
+	
 	
 	@Id
-	@Column(name = "MaHangHoa")
-	private String maHangHoa;
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "MaHH")
+	private String maHH;
 	
 	@Column(name = "DonGia")
 	private double donGia;
+	
+	@ManyToOne
+	@JoinColumn(name="MaNCC")
+	private NhaCC nhacc;
+//	@Column(name = "HinhAnh")
+//	private Image hinhAnh;
 	
 	@OneToMany(mappedBy = "hanghoa")
 	private List<ChiTietHoaDon> dschitiethoadon;
@@ -39,11 +46,11 @@ public class HangHoa {
 		super();
 	}
 
-	public HangHoa(NhaCC nhacc, String maHangHoa, double donGia, List<ChiTietHoaDon> dschitiethoadon,
+	public HangHoa(NhaCC nhacc, String maHH, double donGia, List<ChiTietHoaDon> dschitiethoadon,
 			List<ChiTietDatHang> dschitietdathang) {
 		super();
 		this.nhacc = nhacc;
-		this.maHangHoa = maHangHoa;
+		this.maHH = maHH;
 		this.donGia = donGia;
 		this.dschitiethoadon = dschitiethoadon;
 		this.dschitietdathang = dschitietdathang;
@@ -57,12 +64,12 @@ public class HangHoa {
 		this.nhacc = nhacc;
 	}
 
-	public String getMaHangHoa() {
-		return maHangHoa;
+	public String getMaHH() {
+		return maHH;
 	}
 
-	public void setMaHangHoa(String maHangHoa) {
-		this.maHangHoa = maHangHoa;
+	public void setMaHH(String maHH) {
+		this.maHH = maHH;
 	}
 
 	public double getDonGia() {
@@ -91,7 +98,7 @@ public class HangHoa {
 
 	@Override
 	public String toString() {
-		return "HangHoa [nhacc=" + nhacc + ", maHangHoa=" + maHangHoa + ", donGia=" + donGia + ", dschitiethoadon="
+		return "HangHoa [nhacc=" + nhacc + ", maHH=" + maHH + ", donGia=" + donGia + ", dschitiethoadon="
 				+ dschitiethoadon + ", dschitietdathang=" + dschitietdathang + "]";
 	}
 
